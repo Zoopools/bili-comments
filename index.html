@@ -109,12 +109,21 @@
         }
         .stat-number { font-size: 2em; font-weight: bold; color: white; }
         .stat-label { color: rgba(255,255,255,0.9); font-size: 0.9em; }
+        .badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>📸 B 站评论图片抓取</h1>
-        <p class="subtitle">BV 号：BV15QAUzXEtP | 生化危机 9 Crash 崩溃报错</p>
+        <p class="subtitle">BV 号：BV15QAUzXEtP | 生化危机 9 Crash 崩溃报错 <span class="badge">智能压缩 v1.0</span></p>
         
         <div class="stats">
             <div class="stat-item">
@@ -126,119 +135,131 @@
                 <div class="stat-label">张图片</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">原图画质</div>
+                <div class="stat-number">3.1 MB</div>
+                <div class="stat-label">智能压缩后</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">75%</div>
+                <div class="stat-label">空间节省</div>
             </div>
         </div>
 
-        <!-- 评论 1 -->
         <div class="card">
             <div class="card-header">
                 <span class="user-name">@鲍比烤迪克</span>
                 <span class="comment-index">评论 #1</span>
             </div>
             <div class="card-body">
-                <div class="comment-text">有没有大佬帮忙翻译翻译是因为啥 [笑哭]</div>
+                <div class="comment-text">
+                    有没有大佬帮忙翻译翻译是因为啥 [笑哭]
+                </div>
                 <div class="image-container">
-                    <img src="https://i0.hdslb.com/bfs/new_dyn/e307257281cc97cb9a43ce67b209e23a603268895.jpg" alt="评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
-                    <div class="image-info">📸 @鲍比烤迪克 的评论图片 | 🔍 点击图片查看原图</div>
+                    <img src="compressed_v2/bili_BV15QAUzXEtP_1.jpg" alt="鲍比烤迪克 的评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @鲍比烤迪克 的评论图片 | 🔍 点击图片查看原图 | 💾 153.6 KB (智能压缩)</div>
                 </div>
             </div>
         </div>
 
-        <!-- 评论 2 -->
         <div class="card">
             <div class="card-header">
                 <span class="user-name">@队友脚下火</span>
                 <span class="comment-index">评论 #2</span>
             </div>
             <div class="card-body">
-                <div class="comment-text">之前可以正常玩，昨天突然出现这样的报错</div>
+                <div class="comment-text">
+                    之前可以正常玩，昨天突然出现这样的报错
+                </div>
                 <div class="image-container">
-                    <img src="https://i0.hdslb.com/bfs/new_dyn/3da0984bb0a1744a77510231bbe215e4518548367.jpg" alt="评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
-                    <div class="image-info">📸 @队友脚下火 的评论图片 | 🔍 点击图片查看原图</div>
+                    <img src="compressed_v2/bili_BV15QAUzXEtP_2.jpg" alt="队友脚下火 的评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @队友脚下火 的评论图片 | 🔍 点击图片查看原图 | 💾 1551.2 KB (智能压缩)</div>
                 </div>
             </div>
         </div>
 
-        <!-- 评论 3 -->
         <div class="card">
             <div class="card-header">
                 <span class="user-name">@參悟自由的意義</span>
                 <span class="comment-index">评论 #3</span>
             </div>
             <div class="card-body">
-                <div class="comment-text">嘗試，還是這樣</div>
+                <div class="comment-text">
+                    嘗試，還是這樣
+                </div>
                 <div class="image-container">
-                    <img src="https://i0.hdslb.com/bfs/new_dyn/d63b678c314176e678d6fb6c8a18156814110469.jpg" alt="评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
-                    <div class="image-info">📸 @參悟自由的意義 的评论图片 | 🔍 点击图片查看原图</div>
+                    <img src="compressed_v2/bili_BV15QAUzXEtP_3.jpg" alt="參悟自由的意義 的评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @參悟自由的意義 的评论图片 | 🔍 点击图片查看原图 | 💾 1089.2 KB (智能压缩)</div>
                 </div>
             </div>
         </div>
 
-        <!-- 评论 4 -->
         <div class="card">
             <div class="card-header">
                 <span class="user-name">@起语风</span>
                 <span class="comment-index">评论 #4</span>
             </div>
             <div class="card-body">
-                <div class="comment-text">有没有大佬知道这个怎么解决</div>
+                <div class="comment-text">
+                    有没有大佬知道这个怎么解决
+                </div>
                 <div class="image-container">
-                    <img src="https://i0.hdslb.com/bfs/new_dyn/8dbd37793a7a714ab1a3d3abcd7798d9358323258.png" alt="评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
-                    <div class="image-info">📸 @起语风 的评论图片 | 🔍 点击图片查看原图</div>
+                    <img src="compressed_v2/bili_BV15QAUzXEtP_4.png" alt="起语风 的评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @起语风 的评论图片 | 🔍 点击图片查看原图 | 💾 4.3 KB (智能压缩)</div>
                 </div>
             </div>
         </div>
 
-        <!-- 评论 5 -->
         <div class="card">
             <div class="card-header">
                 <span class="user-name">@赤瞳的夜刃</span>
                 <span class="comment-index">评论 #5</span>
             </div>
             <div class="card-body">
-                <div class="comment-text">这又是什么问题报错，在线等很急</div>
+                <div class="comment-text">
+                    这又是什么问题报错，在线等很急
+                </div>
                 <div class="image-container">
-                    <img src="https://i0.hdslb.com/bfs/new_dyn/54bfa81769c32f2591c9a86177e4067a302272043.jpg" alt="评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
-                    <div class="image-info">📸 @赤瞳的夜刃 的评论图片 | 🔍 点击图片查看原图</div>
+                    <img src="compressed_v2/bili_BV15QAUzXEtP_5.jpg" alt="赤瞳的夜刃 的评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @赤瞳的夜刃 的评论图片 | 🔍 点击图片查看原图 | 💾 226.7 KB (智能压缩)</div>
                 </div>
             </div>
         </div>
 
-        <!-- 评论 6 -->
         <div class="card">
             <div class="card-header">
                 <span class="user-name">@阿拉斯苒</span>
                 <span class="comment-index">评论 #6</span>
             </div>
             <div class="card-body">
-                <div class="comment-text">这个是什么情况</div>
+                <div class="comment-text">
+                    这个是什么情况
+                </div>
                 <div class="image-container">
-                    <img src="https://i0.hdslb.com/bfs/new_dyn/73c2c27e1c9737325ca53a19af83d0e314681573.jpg" alt="评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
-                    <div class="image-info">📸 @阿拉斯苒 的评论图片 | 🔍 点击图片查看原图</div>
+                    <img src="compressed_v2/bili_BV15QAUzXEtP_6.jpg" alt="阿拉斯苒 的评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @阿拉斯苒 的评论图片 | 🔍 点击图片查看原图 | 💾 125.4 KB (智能压缩)</div>
                 </div>
             </div>
         </div>
 
-        <!-- 评论 7 -->
         <div class="card">
             <div class="card-header">
                 <span class="user-name">@Mad-Monk</span>
                 <span class="comment-index">评论 #7</span>
             </div>
             <div class="card-body">
-                <div class="comment-text">按照 up 的指南从头到尾试了一遍，依然如此，游戏时长 50 分钟，满满的解密环节，可能跟我用的是网吧的电脑</div>
+                <div class="comment-text">
+                    按照 up 的指南从头到尾试了一遍，依然如此，游戏时长 50 分钟，满满的解密环节，可能跟我用的是网吧的电脑
+                </div>
                 <div class="image-container">
-                    <img src="https://i0.hdslb.com/bfs/new_dyn/e73288fb9697e7f6e8d863b8fc33931b554905270.png" alt="评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
-                    <div class="image-info">📸 @Mad-Monk 的评论图片 | 🔍 点击图片查看原图</div>
+                    <img src="compressed_v2/bili_BV15QAUzXEtP_7.png" alt="Mad-Monk 的评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @Mad-Monk 的评论图片 | 🔍 点击图片查看原图 | 💾 5.9 KB (智能压缩)</div>
                 </div>
             </div>
         </div>
 
         <div class="footer">
-            <p>🏹 小猎 · 信息捕手 | 专注信息获取和整理</p>
-            <p>💡 点击图片可以全屏查看原图</p>
+            <p>🏹 Hunter-B 站评论 + 图片获取及在线访问 1.0 | 最终版本</p>
+            <p>💡 智能压缩：照片 JPEG 75% | 图形 PNG 优化 | 总节省 75%</p>
+            <p>📊 <a href="智能压缩对比.html" style="color: white; text-decoration: underline;">查看压缩对比</a> | <a href="index.html" style="color: white; text-decoration: underline;">原图版</a></p>
         </div>
     </div>
 </body>
