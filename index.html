@@ -64,20 +64,29 @@
             border-radius: 10px;
             border-left: 4px solid #667eea;
         }
-        .image-container { text-align: center; }
+        .image-container { 
+            text-align: center; 
+            margin: 20px 0;
+        }
         .image-container img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-            cursor: pointer;
+            cursor: zoom-in;
             transition: transform 0.3s ease;
+            display: block;
+            margin: 0 auto;
         }
-        .image-container img:hover { transform: scale(1.02); }
+        .image-container img:hover { 
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
         .image-info {
             margin-top: 10px;
             color: #666;
             font-size: 0.9em;
+            text-align: center;
         }
         .footer {
             text-align: center;
@@ -100,17 +109,6 @@
         }
         .stat-number { font-size: 2em; font-weight: bold; color: white; }
         .stat-label { color: rgba(255,255,255,0.9); font-size: 0.9em; }
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            margin-top: 10px;
-            transition: transform 0.2s ease;
-        }
-        .btn:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
@@ -133,135 +131,114 @@
             </div>
         </div>
 
+        <!-- 评论 1 -->
         <div class="card">
             <div class="card-header">
                 <span class="user-name">@鲍比烤迪克</span>
                 <span class="comment-index">评论 #1</span>
             </div>
             <div class="card-body">
-                <div class="comment-text">
-                    有没有大佬帮忙翻译翻译是因为啥 [笑哭]
-                </div>
+                <div class="comment-text">有没有大佬帮忙翻译翻译是因为啥 [笑哭]</div>
                 <div class="image-container">
-                    <img src="https://i0.hdslb.com/bfs/new_dyn/e307257281cc97cb9a43ce67b209e23a603268895.jpg" alt="鲍比烤迪克 的评论图片" onclick="window.open('https://i0.hdslb.com/bfs/new_dyn/e307257281cc97cb9a43ce67b209e23a603268895.jpg')">
-                    <div class="image-info">
-                        🔗 <a href="https://i0.hdslb.com/bfs/new_dyn/e307257281cc97cb9a43ce67b209e23a603268895.jpg" target="_blank" class="btn">查看原图</a>
-                    </div>
+                    <img src="https://i0.hdslb.com/bfs/new_dyn/e307257281cc97cb9a43ce67b209e23a603268895.jpg" alt="评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @鲍比烤迪克 的评论图片 | 🔍 点击图片查看原图</div>
                 </div>
             </div>
         </div>
 
+        <!-- 评论 2 -->
         <div class="card">
             <div class="card-header">
                 <span class="user-name">@队友脚下火</span>
                 <span class="comment-index">评论 #2</span>
             </div>
             <div class="card-body">
-                <div class="comment-text">
-                    之前可以正常玩，昨天突然出现这样的报错
-                </div>
+                <div class="comment-text">之前可以正常玩，昨天突然出现这样的报错</div>
                 <div class="image-container">
-                    <img src="https://i0.hdslb.com/bfs/new_dyn/3da0984bb0a1744a77510231bbe215e4518548367.jpg" alt="队友脚下火 的评论图片" onclick="window.open('https://i0.hdslb.com/bfs/new_dyn/3da0984bb0a1744a77510231bbe215e4518548367.jpg')">
-                    <div class="image-info">
-                        🔗 <a href="https://i0.hdslb.com/bfs/new_dyn/3da0984bb0a1744a77510231bbe215e4518548367.jpg" target="_blank" class="btn">查看原图</a>
-                    </div>
+                    <img src="https://i0.hdslb.com/bfs/new_dyn/3da0984bb0a1744a77510231bbe215e4518548367.jpg" alt="评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @队友脚下火 的评论图片 | 🔍 点击图片查看原图</div>
                 </div>
             </div>
         </div>
 
+        <!-- 评论 3 -->
         <div class="card">
             <div class="card-header">
                 <span class="user-name">@參悟自由的意義</span>
                 <span class="comment-index">评论 #3</span>
             </div>
             <div class="card-body">
-                <div class="comment-text">
-                    嘗試，還是這樣
-                </div>
+                <div class="comment-text">嘗試，還是這樣</div>
                 <div class="image-container">
-                    <img src="https://i0.hdslb.com/bfs/new_dyn/d63b678c314176e678d6fb6c8a18156814110469.jpg" alt="參悟自由的意義 的评论图片" onclick="window.open('https://i0.hdslb.com/bfs/new_dyn/d63b678c314176e678d6fb6c8a18156814110469.jpg')">
-                    <div class="image-info">
-                        🔗 <a href="https://i0.hdslb.com/bfs/new_dyn/d63b678c314176e678d6fb6c8a18156814110469.jpg" target="_blank" class="btn">查看原图</a>
-                    </div>
+                    <img src="https://i0.hdslb.com/bfs/new_dyn/d63b678c314176e678d6fb6c8a18156814110469.jpg" alt="评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @參悟自由的意義 的评论图片 | 🔍 点击图片查看原图</div>
                 </div>
             </div>
         </div>
 
+        <!-- 评论 4 -->
         <div class="card">
             <div class="card-header">
                 <span class="user-name">@起语风</span>
                 <span class="comment-index">评论 #4</span>
             </div>
             <div class="card-body">
-                <div class="comment-text">
-                    有没有大佬知道这个怎么解决
-                </div>
+                <div class="comment-text">有没有大佬知道这个怎么解决</div>
                 <div class="image-container">
-                    <img src="https://i0.hdslb.com/bfs/new_dyn/8dbd37793a7a714ab1a3d3abcd7798d9358323258.png" alt="起语风 的评论图片" onclick="window.open('https://i0.hdslb.com/bfs/new_dyn/8dbd37793a7a714ab1a3d3abcd7798d9358323258.png')">
-                    <div class="image-info">
-                        🔗 <a href="https://i0.hdslb.com/bfs/new_dyn/8dbd37793a7a714ab1a3d3abcd7798d9358323258.png" target="_blank" class="btn">查看原图</a>
-                    </div>
+                    <img src="https://i0.hdslb.com/bfs/new_dyn/8dbd37793a7a714ab1a3d3abcd7798d9358323258.png" alt="评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @起语风 的评论图片 | 🔍 点击图片查看原图</div>
                 </div>
             </div>
         </div>
 
+        <!-- 评论 5 -->
         <div class="card">
             <div class="card-header">
                 <span class="user-name">@赤瞳的夜刃</span>
                 <span class="comment-index">评论 #5</span>
             </div>
             <div class="card-body">
-                <div class="comment-text">
-                    这又是什么问题报错，在线等很急
-                </div>
+                <div class="comment-text">这又是什么问题报错，在线等很急</div>
                 <div class="image-container">
-                    <img src="https://i0.hdslb.com/bfs/new_dyn/54bfa81769c32f2591c9a86177e4067a302272043.jpg" alt="赤瞳的夜刃 的评论图片" onclick="window.open('https://i0.hdslb.com/bfs/new_dyn/54bfa81769c32f2591c9a86177e4067a302272043.jpg')">
-                    <div class="image-info">
-                        🔗 <a href="https://i0.hdslb.com/bfs/new_dyn/54bfa81769c32f2591c9a86177e4067a302272043.jpg" target="_blank" class="btn">查看原图</a>
-                    </div>
+                    <img src="https://i0.hdslb.com/bfs/new_dyn/54bfa81769c32f2591c9a86177e4067a302272043.jpg" alt="评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @赤瞳的夜刃 的评论图片 | 🔍 点击图片查看原图</div>
                 </div>
             </div>
         </div>
 
+        <!-- 评论 6 -->
         <div class="card">
             <div class="card-header">
                 <span class="user-name">@阿拉斯苒</span>
                 <span class="comment-index">评论 #6</span>
             </div>
             <div class="card-body">
-                <div class="comment-text">
-                    这个是什么情况
-                </div>
+                <div class="comment-text">这个是什么情况</div>
                 <div class="image-container">
-                    <img src="https://i0.hdslb.com/bfs/new_dyn/73c2c27e1c9737325ca53a19af83d0e314681573.jpg" alt="阿拉斯苒 的评论图片" onclick="window.open('https://i0.hdslb.com/bfs/new_dyn/73c2c27e1c9737325ca53a19af83d0e314681573.jpg')">
-                    <div class="image-info">
-                        🔗 <a href="https://i0.hdslb.com/bfs/new_dyn/73c2c27e1c9737325ca53a19af83d0e314681573.jpg" target="_blank" class="btn">查看原图</a>
-                    </div>
+                    <img src="https://i0.hdslb.com/bfs/new_dyn/73c2c27e1c9737325ca53a19af83d0e314681573.jpg" alt="评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @阿拉斯苒 的评论图片 | 🔍 点击图片查看原图</div>
                 </div>
             </div>
         </div>
 
+        <!-- 评论 7 -->
         <div class="card">
             <div class="card-header">
                 <span class="user-name">@Mad-Monk</span>
                 <span class="comment-index">评论 #7</span>
             </div>
             <div class="card-body">
-                <div class="comment-text">
-                    按照 up 的指南从头到尾试了一遍，依然如此，游戏时长 50 分钟，满满的解密环节，可能跟我用的是网吧的电脑
-                </div>
+                <div class="comment-text">按照 up 的指南从头到尾试了一遍，依然如此，游戏时长 50 分钟，满满的解密环节，可能跟我用的是网吧的电脑</div>
                 <div class="image-container">
-                    <img src="https://i0.hdslb.com/bfs/new_dyn/e73288fb9697e7f6e8d863b8fc33931b554905270.png" alt="Mad-Monk 的评论图片" onclick="window.open('https://i0.hdslb.com/bfs/new_dyn/e73288fb9697e7f6e8d863b8fc33931b554905270.png')">
-                    <div class="image-info">
-                        🔗 <a href="https://i0.hdslb.com/bfs/new_dyn/e73288fb9697e7f6e8d863b8fc33931b554905270.png" target="_blank" class="btn">查看原图</a>
-                    </div>
+                    <img src="https://i0.hdslb.com/bfs/new_dyn/e73288fb9697e7f6e8d863b8fc33931b554905270.png" alt="评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @Mad-Monk 的评论图片 | 🔍 点击图片查看原图</div>
                 </div>
             </div>
         </div>
 
         <div class="footer">
-            <p>🏹 小猎 · 信息捕手 | 生成时间：2026-03-13 10:05:05</p>
-            <p>💡 点击图片可以全屏查看 | 数据来源于 B 站评论区</p>
+            <p>🏹 小猎 · 信息捕手 | 专注信息获取和整理</p>
+            <p>💡 点击图片可以全屏查看原图</p>
         </div>
     </div>
 </body>
