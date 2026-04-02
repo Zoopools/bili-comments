@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B 站评论图片抓取 - BV15QAUzXEtP (新)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .user-name { font-size: 1.3em; font-weight: 600; }
+        .comment-index {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        .card-body { padding: 25px; }
+        .comment-text {
+            font-size: 1.1em;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        .image-container { 
+            text-align: center; 
+            margin: 20px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            cursor: zoom-in;
+            transition: transform 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+        .image-container img:hover { 
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+        .image-info {
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.9em;
+            text-align: center;
+        }
+        .footer {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            margin-top: 40px;
+            padding: 20px;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .stat-number { font-size: 2em; font-weight: bold; color: white; }
+        .stat-label { color: rgba(255,255,255,0.9); font-size: 0.9em; }
+        .badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+        .method-badge {
+            background: #f59e0b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📸 B 站评论图片抓取</h1>
+        <p class="subtitle">
+            BV 号：BV15QAUzXEtP | 生化危机 9 Crash 崩溃报错 
+            <span class="badge">移动端 API</span>
+            <span class="badge method-badge">2026-04-02 新抓取</span>
+        </p>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">15</div>
+                <div class="stat-label">条评论</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15</div>
+                <div class="stat-label">张图片</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">原图画质</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">API</div>
+                <div class="stat-label">移动端接口</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="user-name">@老夫河姆渡</span>
+                <span class="comment-index">评论 #1</span>
+            </div>
+            <div class="card-body">
+                <div class="comment-text">
+                    我玩到格雷斯进疗养院拿到保险丝，打开铁门被拽回去那里就跳出这东西，Steam 里面没有那个文件，游戏里...
+                </div>
+                <div class="image-container">
+                    <img src="https://i0.hdslb.com/bfs/new_dyn/fd042af6b2d1e3382a52242aca095d723461567676942458.jpg" alt="老夫河姆渡 的评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @老夫河姆渡 的评论图片 | 🔍 点击图片查看原图 | 💾 1457.4 KB</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="user-name">@參悟自由的意義</span>
+                <span class="comment-index">评论 #2</span>
+            </div>
+            <div class="card-body">
+                <div class="comment-text">
+                    嘗試，還是這樣
+                </div>
+                <div class="image-container">
+                    <img src="https://i0.hdslb.com/bfs/new_dyn/d63b678c314176e678d6fb6c8a18156814110469.jpg" alt="參悟自由的意義 的评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @參悟自由的意義 的评论图片 | 🔍 点击图片查看原图 | 💾 2292.4 KB</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="user-name">@AxelFlovent</span>
+                <span class="comment-index">评论 #3</span>
+            </div>
+            <div class="card-body">
+                <div class="comment-text">
+                    这种假入库的，是不是就玩不了啊
+                </div>
+                <div class="image-container">
+                    <img src="https://i0.hdslb.com/bfs/new_dyn/ef6c05a80e74fb2cb7595a1b042d2ef521030752.jpg" alt="AxelFlovent 的评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @AxelFlovent 的评论图片 | 🔍 点击图片查看原图 | 💾 11143.6 KB</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="user-name">@照烧腿排</span>
+                <span class="comment-index">评论 #4</span>
+            </div>
+            <div class="card-body">
+                <div class="comment-text">
+                    那几个报错弹窗和怪物猎人荒野以及街霸 6 的报错非常像，而且此补丁本身也支持生化危机系列，并且还在今天进...
+                </div>
+                <div class="image-container">
+                    <img src="https://i0.hdslb.com/bfs/new_dyn/10706dd1c16adcf171d27f7afc8a406c510794901.png" alt="照烧腿排 的评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @照烧腿排 的评论图片 | 🔍 点击图片查看原图</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="user-name">@照烧腿排</span>
+                <span class="comment-index">评论 #5</span>
+            </div>
+            <div class="card-body">
+                <div class="comment-text">
+                    那几个报错弹窗和怪物猎人荒野以及街霸 6 的报错非常像，而且此补丁本身也支持生化危机系列，并且还在今天进...
+                </div>
+                <div class="image-container">
+                    <img src="https://i0.hdslb.com/bfs/new_dyn/1d1e0d2a07b7cc4413c38dd8e7e85812510794901.png" alt="照烧腿排 的评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @照烧腿排 的评论图片 | 🔍 点击图片查看原图</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="user-name">@wenlian 文廉</span>
+                <span class="comment-index">评论 #6</span>
+            </div>
+            <div class="card-body">
+                <div class="comment-text">
+                    直接变四个
+                </div>
+                <div class="image-container">
+                    <img src="https://i0.hdslb.com/bfs/new_dyn/4f6f3bf53789ce76290e680d5826668e373405962.jpg" alt="wenlian 文廉 的评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @wenlian 文廉 的评论图片 | 🔍 点击图片查看原图</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="user-name">@春目野穹</span>
+                <span class="comment-index">评论 #7</span>
+            </div>
+            <div class="card-body">
+                <div class="comment-text">
+                    这种情况是怎么回事
+                </div>
+                <div class="image-container">
+                    <img src="https://i0.hdslb.com/bfs/new_dyn/fe40b77a168ddbc35f7e7b3560ecfc5b30502978.jpg" alt="春目野穹 的评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @春目野穹 的评论图片 | 🔍 点击图片查看原图</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="user-name">@羽安卡 aus</span>
+                <span class="comment-index">评论 #8</span>
+            </div>
+            <div class="card-body">
+                <div class="comment-text">
+                    玩了一个下午，期间从格蕾丝转到里昂时会闪退，重进一两次就好了，但是最后在教堂里面用里昂打怪那个动画放...
+                </div>
+                <div class="image-container">
+                    <img src="https://i0.hdslb.com/bfs/new_dyn/cbb0d1ba03ace768e2b7decd1f5b9f013493126553471884.jpg" alt="羽安卡 aus 的评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @羽安卡 aus 的评论图片 | 🔍 点击图片查看原图</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="user-name">@不分漓</span>
+                <span class="comment-index">评论 #9</span>
+            </div>
+            <div class="card-body">
+                <div class="comment-text">
+                    主播我是这种情况，文件里没有 hid.dll，下了这个补丁之后，能打开游戏，但是一会就会闪退，怎么解决
+                </div>
+                <div class="image-container">
+                    <img src="https://i0.hdslb.com/bfs/new_dyn/f93bb892492d0e42abedcfc5294bf360475746713.jpg" alt="不分漓 的评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @不分漓 的评论图片 | 🔍 点击图片查看原图</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="user-name">@ltzm 乐天</span>
+                <span class="comment-index">评论 #10</span>
+            </div>
+            <div class="card-body">
+                <div class="comment-text">
+                    请问一下这个是什么
+                </div>
+                <div class="image-container">
+                    <img src="https://i0.hdslb.com/bfs/new_dyn/60aeda4a71f5fde0df0499a3d846ee82179923512.png" alt="ltzm 乐天 的评论图片" referrerpolicy="no-referrer" loading="lazy" onclick="window.open(this.src, '_blank')">
+                    <div class="image-info">📸 @ltzm 乐天 的评论图片 | 🔍 点击图片查看原图</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🏹 小猎（Hunter）· 信息捕手 | 专注信息获取和整理</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                📅 抓取时间：2026-04-02 18:43 | 
+                🔧 技术方案：B 站移动端 API |
+                <a href="https://github.com/Zoopools/bili-comments" target="_blank" style="color: rgba(255,255,255,0.8);">GitHub 仓库</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
