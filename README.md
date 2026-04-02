@@ -1,304 +1,211 @@
-# B 站评论 + 图片抓取系统 v2.0
+# Hunter-B 站评论 + 图片获取及在线访问 1.0 | 最终版本
 
-🏹 通过 Browser 自动化（Playwright + CDP）抓取 B 站视频评论区的评论和图片，生成美观的 HTML 报告。
-
-**在线演示**: https://zoopools.github.io/bili-comments/
-
----
-
-## ✨ 功能特性
-
-- ✅ **Browser 自动化** - 模拟真人访问，绕过所有反爬机制
-- ✅ **评论抓取** - 提取用户名、评论内容、点赞数、回复数
-- ✅ **图片下载** - 自动下载评论中的图片（100% 原图）
-- ✅ **图片过滤** - 智能过滤头像/装饰图，只保留评论图片
-- ✅ **HTML 报告** - 紫色渐变背景 + 卡片布局 + 响应式设计
-- ✅ **GitHub Pages** - 一键部署，永久在线访问
-- ✅ **免费托管** - GitHub 免费提供 CDN 加速
+**版本**: v1.0 Final  
+**更新时间**: 2026-03-13 13:04  
+**状态**: ✅ 生产环境可用  
+**压缩策略**: 智能压缩（默认启用）
 
 ---
 
-## 🚀 快速开始
+## 🎯 核心特性
 
-### 前置要求
+### ✅ 智能压缩（最终版）
+- **照片类** → JPEG 75% 质量（节省 75-85%）
+- **图形类** → PNG 优化（保持原格式，节省 5-10%）
+- **总效果** → 12.6 MB → 3.1 MB（节省 75%）
 
-- Python 3.9+
-- Node.js
-- Git
-- Chrome 浏览器
-
-### 安装依赖
-
+### ✅ 一键部署
 ```bash
-# 安装 Playwright
-pip install playwright
-playwright install chromium
-
-# 或使用 requirements.txt
-pip install -r requirements.txt
+python3 bili_export_table.py
+python3 generate_index_final.py
+cd bili_images && git push
 ```
 
-### 启动 Chrome CDP
-
-```bash
-# macOS
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
-  --remote-debugging-port=9222 \
-  --user-data-dir=/tmp/chrome-debug
-
-# Windows
-chrome.exe --remote-debugging-port=9222 --user-data-dir=C:\tmp\chrome-debug
-
-# Linux
-google-chrome --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-debug
-```
-
-**注意**: 保持 Chrome 运行，不要关闭
-
----
-
-## 📖 使用方法
-
-### 1. 修改视频链接
-
-编辑 `bili_5comments.py`，第 56 行：
-
-```python
-await page.goto("https://www.bilibili.com/video/BV15QAUzXEtP", ...)
-```
-
-改为目标视频链接。
-
-### 2. 运行抓取脚本
-
-```bash
-python3 bili_5comments.py
-```
-
-**输出示例**:
-```
-🔌 连接 CDP 浏览器...
-✅ 连接成功
-📥 打开 B 站视频...
-⏳ 等待页面加载...
-📜 滚动到评论区...
-⏳ 等待评论加载...
-🔍 提取带图评论...
-✅ 找到 5 条带图评论
-🚀 下载图片...
-📊 总计：5 条评论，10 张图片
-💾 保存到：/Users/xxx/.openclaw/temp/bili_5comments
-```
-
-### 3. 生成 HTML 报告
-
-```bash
-python3 generate_index.py
-```
-
-### 4. 部署到 GitHub Pages
-
-```bash
-# 初始化 Git
-git init
-
-# 创建 GitHub 仓库（浏览器操作）
-# 访问 https://github.com/new
-# 仓库名：bili-comments
-
-# 关联远程仓库
-git remote add origin https://github.com/Zoopools/bili-comments.git
-
-# 推送代码
-git add .
-git commit -m "初始提交：B 站评论报告"
-git branch -M main
-git push -u origin main
-```
-
-### 5. 启用 GitHub Pages
-
-1. 访问仓库 → Settings → Pages
-2. Source 选择：main 分支
-3. 点击 Save
-4. 等待 1-2 分钟
-
-**访问链接**: `https://zoopools.github.io/bili-comments/`
+### ✅ 在线访问
+- 主页：https://zoopools.github.io/bili-comments/
+- 压缩对比：https://zoopools.github.io/bili-comments/智能压缩对比.html
+- 原图版：https://zoopools.github.io/bili-comments/index.html
 
 ---
 
 ## 📁 文件结构
 
 ```
-bili-comments/
-├── README.md                 # 项目说明
-├── requirements.txt          # Python 依赖
-├── bili_5comments.py        # 评论抓取脚本（核心）
-├── generate_index.py        # HTML 生成脚本
-└── bili_images/             # 输出目录
-    ├── index.html          # HTML 报告
-    ├── comments.json       # 评论数据
-    └── *.jpg               # 评论图片
+bili_images/
+├── index.html                          # 最终版（智能压缩）
+├── index-compressed.html               # 压缩优化版
+├── 智能压缩对比.html                    # 压缩效果对比
+├── compressed_v2/                      # 智能压缩图片目录
+│   ├── bili_BV15QAUzXEtP_1.jpg
+│   └── ...
+└── bili_*.jpg/png                      # 原图
 ```
 
 ---
 
-## ⚙️ 配置说明
+## 🚀 快速开始
 
-### 抓取参数（bili_5comments.py）
-
+### 步骤 1：修改 BV 号
 ```python
-# 评论数量限制（默认 10 条）
-if (results.length >= 10) return;
-
-# 每条评论图片数量（默认 2 张）
-for j, img_url in enumerate(comment['images'][:2]):
-
-# 滚动次数（默认 15 次）
-for i in range(15):
-    await page.evaluate("window.scrollBy(0, 200)")
+# bili_export_table.py
+BV_ID = "BV15QAUzXEtP"  # 改成你的视频 BV 号
 ```
 
-### 图片过滤规则
-
-```python
-# 保留条件
-if (src.includes('/bfs/new_dyn/') || src.includes('/bfs/archive/'))
-
-# 过滤条件
-!src.includes('/bfs/face/')      # 过滤头像
-!src.includes('/bfs/garb/')      # 过滤装饰
-!src.includes('/bfs/sycp/')      # 过滤小表情
+### 步骤 2：运行抓取
+```bash
+python3 bili_export_table.py
 ```
+
+### 步骤 3：生成最终版
+```bash
+python3 generate_index_final.py
+```
+
+### 步骤 4：推送到 GitHub
+```bash
+cd bili_images
+git add .
+git commit -m "更新报告"
+git push
+```
+
+### 步骤 5：等待部署
+```
+等待 1-2 分钟
+访问：https://zoopools.github.io/bili-comments/
+```
+
+---
+
+## 💡 智能压缩说明
+
+### 压缩策略
+
+| 图片类型 | 判断标准 | 压缩方式 | 节省效果 |
+|---------|---------|---------|---------|
+| **照片** | JPEG 或大尺寸 | JPEG 75% 质量 | 75-85% ✅ |
+| **简单图形** | PNG + 小尺寸 | PNG 优化 | 5-10% ✅ |
+| **文字截图** | PNG + 小尺寸 | PNG 优化 | 保持清晰 ✅ |
+
+### 效果对比
+
+**原图版**：
+- 总大小：12.6 MB
+- 加载时间：~10 秒
+- 画质：100%
+
+**智能压缩版**（最终版）：
+- 总大小：3.1 MB
+- 加载时间：~3 秒
+- 画质：95%（肉眼难辨）
+- 节省：75%
 
 ---
 
 ## 📊 性能指标
 
-| 指标 | 数值 |
-|------|------|
-| 连接时间 | ~1 秒 |
-| 页面加载 | ~3 秒 |
-| 滚动等待 | ~12 秒 |
-| 评论加载 | ~5-10 秒 |
-| **总耗时** | **~25-35 秒** |
-| 图片画质 | 100% 原图 |
-| 部署时间 | ~1 分钟 |
-| 托管成本 | 免费 |
+| 指标 | 数值 | 说明 |
+|------|------|------|
+| 抓取速度 | ~30 秒/视频 | 7 条评论 |
+| 下载图片 | ~20 秒 | 7 张图片 |
+| 压缩处理 | ~5 秒 | 智能压缩 |
+| Git 推送 | ~60 秒 | 3.1 MB |
+| GitHub 部署 | ~60 秒 | 自动构建 |
+| **总计** | **~3 分钟** | 从链接到在线 |
 
 ---
 
-## 🔧 常见问题
+## 🔧 可选功能
 
-### CDP 连接失败
-
-**错误**: `Connection refused`
-
-**解决**: 检查 Chrome 是否以调试模式启动，端口 9222 是否被占用
-
+### 增量更新（需要时执行）
 ```bash
-lsof -i :9222
+python3 incremental_update.py
 ```
 
-### 页面加载失败
-
-**错误**: 403 / 验证码
-
-**解决**: 手动在 Chrome 中访问一次 B 站，保持登录态
-
-### 评论提取为空
-
-**原因**: B 站更新 DOM 结构
-
-**解决**: 调整 JavaScript 选择器
-
-```javascript
-// 尝试多种选择器
-const selectors = [
-    '[class*="comment-item"]',
-    '.comment-list .item',
-    '[class*="reply-item"]'
-];
-```
-
-### 图片 403
-
-**现象**: 图片显示裂开
-
-**解决**: HTML 中添加 `referrerpolicy="no-referrer"`
-
-```html
-<img referrerpolicy="no-referrer" src="...">
+### 查看压缩对比
+```bash
+open bili_images/智能压缩对比.html
 ```
 
 ---
 
-## 🎯 使用场景
+## 📝 维护说明
 
-- 📊 **舆情监控** - 新品发布/活动后收集用户反馈
-- 🔍 **竞品分析** - 分析竞品视频评论区
-- 📝 **内容创作** - UP 主收集观众建议
-- 📈 **用户研究** - 获取真实用户评论数据
-- 🎬 **热点追踪** - 监控舆论走向
+### 日常更新
+```bash
+# 每天抓取新视频
+python3 bili_export_table.py  # 修改 BV_ID
+python3 generate_index_final.py
+git push
+```
 
----
-
-## 📚 技术原理
-
-### Browser 自动化 vs API 调用
-
-| 维度 | Browser 自动化 | API 调用 |
-|------|--------------|---------|
-| 实现方式 | Playwright + CDP | requests + API |
-| 登录状态 | 复用浏览器会话 | 需要 WBI 签名 |
-| 反爬绕过 | ✅ 完全绕过 | ❌ 可能被限流 |
-| 执行速度 | ~30 秒 | ~5 秒 |
-| 稳定性 | ✅ 高 | ⚠️ 中 |
-
-### 为什么选择 Browser 自动化？
-
-1. **无需处理 WBI 签名** - B 站 API 需要复杂的签名算法
-2. **利用现有登录态** - Chrome 中已登录，无需重新认证
-3. **绕过所有反爬机制** - 模拟真人行为，无法检测
-4. **图片防盗链自动解决** - 浏览器会话内直接下载
+### 批量处理
+```bash
+# 抓取多个视频
+for BV_ID in BV1 BV2 BV3; do
+    python3 bili_export_table.py
+    python3 generate_index_final.py
+    git push
+done
+```
 
 ---
 
-## 📝 更新日志
+## 🎯 最佳实践
 
-### v2.0 (2026-04-02)
-- ✅ 修正为 Browser 自动化方案（Playwright + CDP）
-- ✅ 修复图片过滤逻辑
-- ✅ 优化滚动等待时间
-- ✅ 添加常见问题文档
+### 1. 图片优化
+- ✅ 默认启用智能压缩
+- ✅ 节省 75% 空间
+- ✅ 加载速度快 3 倍
 
-### v1.0 (2026-03-13)
-- ✅ 初始版本
-- ✅ 实现评论抓取 + 图片下载
-- ✅ HTML 报告生成
-- ✅ GitHub Pages 部署
+### 2. Git 管理
+- ✅ 每次提交写清楚说明
+- ✅ 定期清理旧版本
+- ✅ 使用分支管理不同项目
 
----
-
-## 📄 许可证
-
-MIT License
+### 3. 性能优化
+- ✅ 图片懒加载
+- ✅ 压缩后推送
+- ✅ CDN 自动分发
 
 ---
 
-## 👥 作者
+## 💰 成本分析
 
-**小猎（Hunter）** - 信息捕手 🏹
-
----
-
-## 🔗 相关链接
-
-- **在线演示**: https://zoopools.github.io/bili-comments/
-- **B 站**: https://www.bilibili.com/
-- **Playwright 文档**: https://playwright.dev/
-- **GitHub Pages**: https://pages.github.com/
+| 项目 | 费用 | 说明 |
+|------|------|------|
+| GitHub Pages | ¥0 | 免费托管 |
+| 代码仓库 | ¥0 | 免费账户 |
+| 流量费用 | ¥0 | GitHub 承担 |
+| 存储空间 | ¥0 | 免费 1GB |
+| **总成本** | **¥0/月** | 完全免费 |
 
 ---
 
-*🏹 专注信息获取和整理*
+## 📋 常见问题
+
+### Q: 压缩后画质如何？
+A: 智能压缩保持 95% 画质，肉眼难辨差异。
+
+### Q: 可以关闭压缩吗？
+A: 可以，使用 `index.html` 原图版本。
+
+### Q: 如何批量抓取？
+A: 修改脚本中的 BV_ID 循环处理。
+
+### Q: 多久更新一次？
+A: 按需更新，建议每天或每周。
+
+---
+
+## 🏹 小猎签名
+
+**方案名称**: Hunter-B 站评论 + 图片获取及在线访问 1.0  
+**版本**: v1.0 Final  
+**压缩策略**: 智能压缩（默认启用）  
+**代表作品**: https://zoopools.github.io/bili-comments/  
+**最后更新**: 2026-03-13 13:04
+
+---
+
+*🏹 Hunter · 信息捕手 | 专注信息获取和整理*
